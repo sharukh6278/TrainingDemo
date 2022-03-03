@@ -1,9 +1,10 @@
 package mockito;
 
-public  class StudentService {
-    //int getTotalStudent();
-    //int getTotalMarks();
-    public int getTotalStudent(){
+public  interface StudentService {
+    int getTotalStudent();
+    int getTotalMarks();
+    void voidMethod();
+    /*public int getTotalStudent(){
         return 100;
     }
     public  int getTotalMarks(){
@@ -11,5 +12,5 @@ public  class StudentService {
     }
     public  void voidMethod(){
         System.out.println("void method");
-    }
+    }*/
 }

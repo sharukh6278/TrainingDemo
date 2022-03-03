@@ -1,20 +1,34 @@
 package mockito;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
 
+@RunWith(MockitoJUnitRunner.class)
 public class StudentTest {
 
-    StudentService studentService= Mockito.mock(StudentService.class);
+    //@InjectMocks//it will try to inject real bean
+    @Mock
+    StudentService studentService;//= Mockito.mock(StudentService.class);
 
+    @InjectMocks
     Student student=new Student(studentService);
 
-    @Test//(expected = Exception.class)
+    @Before
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+
+
+    }
+        @Test//(expected = Exception.class)
     public void testGetAverage(){
         /*Mockito.doAnswer(new Answer() {
             @Override

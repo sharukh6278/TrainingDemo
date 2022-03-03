@@ -3,6 +3,7 @@ package mockito;
 public class Student {
 
     StudentService studentService;
+    //public Student(){}
     public Student(StudentService studentService){
         this.studentService=studentService;
     }
