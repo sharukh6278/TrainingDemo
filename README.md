@@ -1,2 +1,0 @@
-# TrainingDemo
-Training Demo
