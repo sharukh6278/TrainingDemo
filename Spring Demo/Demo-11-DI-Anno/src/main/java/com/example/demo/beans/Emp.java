@@ -1,13 +1,21 @@
-package com.beans;
+package com.example.demo.beans;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Emp {
 	private int id;
 	private String name;
+	
+	@Autowired
 	private Adress adress;
+	
 	public Emp() {
-		System.out.println("default emp");
+		
+		System.out.println("default emp "+adress);
 	}
 	
 	public int getId() {
@@ -27,7 +35,7 @@ public class Emp {
 		return adress;
 	}
 
-	@Autowired
+	
 	public void setAdress(Adress adress) {
 		this.adress = adress;
 	}
@@ -35,6 +43,11 @@ public class Emp {
 	@Override
 	public String toString() {
 		return "Emp [id=" + id + ", name=" + name + ", adress=" + adress + "]";
+	}
+	
+	public void showEmp() {
+		System.out.println("showEmp is called ");
+		adress.show();
 	}
 
 	

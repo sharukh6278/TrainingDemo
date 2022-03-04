@@ -19,4 +19,11 @@
 	<bean id="empDao" class="org.com.dao.EmployeeDao">
 		<constructor-arg ref="jdbcTemplate"></constructor-arg>
 	</bean>
+	
+	<bean id="empDaoPre" class="org.com.dao.EmployeeDaoPreparedStatement">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+	</bean>
+	<bean id="empDaoNamed" class="org.com.dao.EmployeeDaoNamedParameter">
+		<constructor-arg ref="jdbcTemplate"></constructor-arg>
+	</bean>
 </beans>

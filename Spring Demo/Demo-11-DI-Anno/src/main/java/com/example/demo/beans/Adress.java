@@ -1,11 +1,13 @@
-package com.beans;
+package com.example.demo.beans;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class Adress {
-	private int hNo;
-	private String city;
+	private int hNo=20;
+	private String city="Bidar";
 	
 	public Adress() {
 		System.out.println("Adress defaul cons");
@@ -26,6 +28,8 @@ public class Adress {
 	public String toString() {
 		return "Adress [hNo=" + hNo + ", city=" + city + "]";
 	}
-	
+	public void show() {
+		System.out.println("address is showing");
+	}
 	
 }
