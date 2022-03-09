@@ -34,15 +34,14 @@ public class App
 	}
 	
 	//public App() {}
-    public static void main( String[] args )
+    public static void main( String[] args ) throws InterruptedException
     {
-    	new AnnotationConfigApplicationContext(ConfigurationDemo.class);
     	@SuppressWarnings("resource")
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(ConfigurationDemo.class);
-    	  Emp e = (Emp) appContext.getBean("emp2");//appContext.getBean(Emp.class);
-    	 System.out.println("app : "+e.hashCode());
-    	 Emp e2 = (Emp) appContext.getBean("emp2");
-    	 System.out.println("app : "+e2.hashCode());
+    	  Emp e = (Emp) appContext.getBean(Emp.class);//appContext.getBean(Emp.class);
+    	 System.out.println("app :e "+e.getName());
+    	 Emp e2 = (Emp) appContext.getBean("emp2",Emp.class);
+    	 System.out.println("app :e2 "+e2.getName());
     }
     
     

@@ -6,9 +6,14 @@ public class Emp {
 	private int id;
 	private String name;
 	private Adress adress;
+	
 	public Emp() {
-		System.out.println("default emp");
+		
 	}
+	/*
+	 * public Emp(Adress adress) { this.adress=adress;
+	 * System.out.println("default emp : "); }
+	 */
 	
 	public int getId() {
 		return id;
@@ -23,20 +28,21 @@ public class Emp {
 		this.name = name;
 	}
 	
-	public Adress getAdress() {
-		return adress;
-	}
-
-	@Autowired
-	public void setAdress(Adress adress) {
-		this.adress = adress;
-	}
+	
+	  public Adress getAdress() { return adress; }
+	  
+	  public void setAdress(Adress adress) { this.adress = adress; }
+	 
 
 	@Override
 	public String toString() {
 		return "Emp [id=" + id + ", name=" + name + ", adress=" + adress + "]";
 	}
-
+		
+	public void showAdress() {
+		
+		System.out.println("adress : "+this.adress.getCity());
+	}
 	
 	
 

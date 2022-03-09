@@ -2,10 +2,10 @@ package com.beans;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Adress {
-	private int hNo;
-	private String city;
+	private int hNo=15;
+	private String city="Bidar";
 	
 	public Adress() {
 		System.out.println("Adress defaul cons");

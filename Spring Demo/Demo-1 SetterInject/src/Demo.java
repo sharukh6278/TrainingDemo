@@ -11,7 +11,6 @@ import com.beans.Emp;
 public class Demo {
 
 	public static void main(String[] args) {
-		
 		BeanFactory fb=new XmlBeanFactory(new ClassPathResource("beans.xml"));
 		Emp e1=(Emp) fb.getBean("emp");
 		System.out.println(e1);

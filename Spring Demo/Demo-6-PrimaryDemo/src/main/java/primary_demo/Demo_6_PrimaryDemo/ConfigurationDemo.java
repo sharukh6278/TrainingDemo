@@ -13,11 +13,18 @@ import primary_demo.Demo_6_PrimaryDemo.beans.Emp;
 @Configuration
 public class ConfigurationDemo {
 	
-	@Bean(name="emp2")
-	@Scope(value = "prototype")
+	@Bean
+	@Primary
+	//@Scope(value = "prototype")
 	public static Emp getEmp2() {
 		//System.out.println("getEmp2() is called");
 		return new Emp("Rahul");
+	}
+	
+	@Bean(name="emp2")
+	public static Emp getEmp23() {
+		//System.out.println("getEmp2() is called");
+		return new Emp("Sharukh");
 	}
 	
 
