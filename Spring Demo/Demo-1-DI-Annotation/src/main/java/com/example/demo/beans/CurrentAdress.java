@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 
-@Component("adress1")
-//@Named("adress1")
-public class CurrentAdress implements Adress{
+@Component("adress2")
+//@Primary
+public class CurrentAdress {
 	private int hNo=24;
 	private String city="CurrentCity";
 	
@@ -30,7 +30,7 @@ public class CurrentAdress implements Adress{
 		return "CurrentAdress [hNo=" + hNo + ", city=" + city + "]";
 	}
 	
-	@Override
+	//@Override
 	public void showAdress() {
 		System.out.println(this);
 		

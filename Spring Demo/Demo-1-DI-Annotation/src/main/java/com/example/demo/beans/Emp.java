@@ -14,20 +14,9 @@ public class Emp {
 	private int id;
 	private String name;
 	
-	@Autowired
-	//@Qualifier("adress2")
-	@Inject
-	//@Named("adress2")
+	//@Autowired
+	//@Qualifier("p")
 	private Adress adress;
-	
-	/*
-	 * public Emp(Adress adress) { this.adress=adress;
-	 * System.out.println("emp cons :"+adress); }
-	 */
-	/*
-	 * public Emp(Adress adress) { this.adress=adress;
-	 * System.out.println("default emp : "); }
-	 */
 	
 	public int getId() {
 		return id;
@@ -48,7 +37,7 @@ public class Emp {
 		return "Emp [id=" + id + ", name=" + name + ", adress=" + adress + "]";
 	}
 		
-	public void showAdress() {
+	public void showAdressEmp() {
 		
 		this.adress.showAdress();
 	}

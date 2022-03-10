@@ -14,9 +14,10 @@ import com.example.demo.beans.Emp;
 public class Demo1DiAnnotationApplication {
 	private static final Logger logger = LoggerFactory.getLogger(Demo1DiAnnotationApplication.class);
 	public static void main(String[] args) {
+		
 		ApplicationContext ctx =SpringApplication.run(Demo1DiAnnotationApplication.class, args);
 		Emp e1 = ctx.getBean( Emp.class);
-		e1.showAdress();
+		e1.showAdressEmp();
 		logger.error("error");
 	}
 

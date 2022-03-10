@@ -6,6 +6,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.HttpStatus;
@@ -22,39 +23,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@RibbonClient(name = "MicroService2")
 @RestController
 public class LoginController {
 
 
+
     @Autowired
-    RestTemplate restTemplate;
+    RestTemplate restTemplate;//=new RestTemplate();
 
     @Autowired
     LoadBalancerClient loadBalancerClient;
+
     @GET()
     @RequestMapping("/test1")
     public ResponseEntity test1()
     {
-
         System.out.println("request in Service 1 test1");
-        ServiceInstance serviceInstance=loadBalancerClient.choose("MicroService1");
-        //System.out.println("service 1 working : "+serviceInstance.getUri());
-
         return new ResponseEntity("welcome to service1",HttpStatus.OK);
     }
 
     @GET
     @RequestMapping("/test2")
-    @HystrixCommand(fallbackMethod = "error_calling_service2")
+    //@HystrixCommand(fallbackMethod = "error_calling_service2")
     public ResponseEntity test2()
     {
 
         System.out.println("calling  serive2");
-        String url="http://localhost:1237/SERVICE1/test2";
+        String url="http://MicroService2/SERVICE2/port";
+        //String url="http://localhost:1237/SERVICE2/port";
         String l = restTemplate.getForObject(url, String.class);
         System.out.println(("response from service2  : "+l));
-
-
         return new ResponseEntity(l,HttpStatus.OK);
     }
 

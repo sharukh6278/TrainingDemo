@@ -16,25 +16,21 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableCircuitBreaker
 @EnableEurekaClient
-@SpringBootApplication(scanBasePackages={"com.netflix.client.config.IClientConfig","com.example"})
-//@SpringBootApplication
-@Configuration
-@RibbonClient(name = "MicroService1", configuration = RibbonConfiguration.class)
+@SpringBootApplication
 public class MicroService1Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MicroService1Application.class, args);
-	}
-	@Value("${message}")
-	String message;
-	@LoadBalanced
-	@Bean
-	public RestTemplate getRestTemplate()
-	{
-		System.out.println("message : *** "+message);
-		return new RestTemplate();
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MicroService1Application.class, args);
+    }
 
+    @Value("${message}")
+    String message;
+
+    @LoadBalanced
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
 
 
 }

@@ -5,13 +5,15 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-//@Named("adress2")
+
 @Component("adress2")
-//@Primary
 public class ParmAddress implements Adress{
 	private int hNo=24;
 	private String city="ParmCiti";
 	
+	public ParmAddress() {
+		System.out.println("ParmAddress Object is  created");
+	}
 	
 	public int gethNo() {
 		return hNo;

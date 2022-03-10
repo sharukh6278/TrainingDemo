@@ -1,5 +1,6 @@
 package com.example.login;
 
+
 public class RegistartionBean {
     String name;
     String email;
