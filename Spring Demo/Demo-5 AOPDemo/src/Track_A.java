@@ -29,11 +29,11 @@ public class Track_A {
 	}
 
 	@Around("msg()")
-	public void around(ProceedingJoinPoint jp) throws Throwable {
-		System.out.println("before calling around   A msg()");
+	public Object around(ProceedingJoinPoint jp) throws Throwable {
+		//System.out.println("before calling around   A msg() : "+jp.proceed());
 		jp.proceed();
-		System.out.println("after calling around   A msg()");
-
+		//System.out.println("after calling around   A msg() "+jp.proceed());
+		return jp.proceed();
 	}
 
 	@AfterReturning("msg()")
