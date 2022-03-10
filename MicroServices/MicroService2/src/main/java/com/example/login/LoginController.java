@@ -17,13 +17,13 @@ public class LoginController {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    @HystrixCommand(fallbackMethod = "error_calling_service1")
+    //@HystrixCommand(fallbackMethod = "error_calling_service1")
     @GET()
     @RequestMapping("/test1")
     public ResponseEntity test1() {
         System.out.println("calling  serive2");
         String url = "http://localhost:1238/SERVICE1/test1";
-        boolean b = true;
+        boolean b = false;
         if (b) {
             throw new RuntimeException("exkdkdf");
         }
