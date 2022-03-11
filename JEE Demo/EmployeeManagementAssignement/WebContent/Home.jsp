@@ -34,7 +34,7 @@ tr:nth-child(even) {
 			emp = (Emp) objEmp;
 			session.setAttribute("emp", emp);
 		}
-		System.out.println("session in home : " + emp);
+		//System.out.println("session in home : " + emp);
 
 		if (emp == null) {
 			session.setAttribute("error", "Please login Before Continue");
@@ -45,12 +45,25 @@ tr:nth-child(even) {
 
 		Object list = request.getSession().getAttribute("empList");
 		List<Emp> listEmp = (List<Emp>) list;
+
+		Object message = session.getAttribute("message");
+		if (message != null) {
+			out.println("<font color='green' size='5' >" + message + "</font>");
+			session.removeAttribute("message");
+		}
+		Object error = session.getAttribute("error");
+		if (error != null) {
+			out.println("<font color='red' size='5' >" + error + "</font>");
+			session.removeAttribute("error");
+		}
 	%>
 	<H2>
 		Welcome to Home
 		<%=emp.getEmail()%>
-		<a href="${pageContext.request.contextPath}/ViewDetail?edit=true">Profile</a>
+		<a href="${pageContext.request.contextPath}/updated_current_user.jsp">Profile</a>
 	</H2>
+	
+	<a href="${pageContext.request.contextPath}/LogOut">Log out</a>
 	<c:set var="currentUser" value="<%=emp%>"></c:set>
 	<c:set var="listEmp" value="<%=listEmp%>"></c:set>
 
@@ -67,51 +80,31 @@ tr:nth-child(even) {
 
 
 		</tr>
+		<c:set var="count" value="0" scope="page" />
 		<c:forEach items="${listEmp }" var="emp">
+
 			<tr>
 				<td><c:out value="${emp.getId()}" /></td>
 				<td><c:out value="${emp.getName()}" /></td>
 				<td><c:out value="${emp.getEmail()}" /></td>
-				<c:if test="${currentUser.getEmail().equals(emp.getEmail()) }">
-					<td>
-						<form
-							action="${pageContext.request.contextPath}/viewDetails?edit=true">
-							<input type="submit" name="button1" value="View Details" />
-						</form>
-					</td>
-				</c:if>
-
-				<c:if test="${!currentUser.getEmail().equals(emp.getEmail()) }">
-					<td>
-						<form
-							action="${pageContext.request.contextPath}/viewDetails?edit=false">
-							<input type="submit" name="button1" value="View Details" />
-						</form>
-					</td>
-				</c:if>
-
-
+				<td><a
+					href="${pageContext.request.contextPath}/update.jsp?edit=false&&index=${count}&&currentUser=false"><button>View
+							Deatils</button></a></td>
 
 				<c:if test="${currentUser.getPermission().equals('admin') }">
 
-					<td>
-						<form
-							action="${pageContext.request.contextPath}/editDetails?edit=false">
-							<input type="submit" name="button1" value="Edit Employee" />
-						</form>
-					</td>
-					<td>
-						<form action="${pageContext.request.contextPath}/deleteEmp">
-							<input type="submit" name="button1" value="Delete Employee" />
-						</form>
-					</td>
+					<td><a
+						href="${pageContext.request.contextPath}/update.jsp?edit=true&&index=${count}&&currentUser=false"><button>Edit Details</button></a></td>
+					<td><a
+						href="${pageContext.request.contextPath}/Delete?id=${emp.getId()}"><button>Delete
+								</button></a></td>
 				</c:if>
 
 
 
 
 			</tr>
-
+			<c:set var="count" value="${count + 1}" scope="page" />
 		</c:forEach>
 
 	</table>

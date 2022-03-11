@@ -62,7 +62,6 @@ try(Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521
 			request.getSession().setAttribute("error", e.getMessage());
 		}
 		try(Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
-				PreparedStatement ps=con.prepareStatement("select * from emp2");
 				PreparedStatement pst=con.prepareStatement("select * from emp2 where email=? and password=?")
 				) {
 			pst.setString(1, email);
@@ -86,6 +85,19 @@ try(Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521
 				rd.forward(request, response);
 				return;
 			}
+			getAllEmp(request, con);
+		}
+		catch(Exception e) {
+			System.out.println("execption  : "+e);
+			request.getSession().setAttribute("error", e.getMessage());
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("Home.jsp");
+		rd.forward(request, response);
+	}
+	
+	public static void getAllEmp(HttpServletRequest request,Connection con){
+		try(PreparedStatement ps=con.prepareStatement("select * from emp2")) {
+			
 			ResultSet rs=ps.executeQuery();
 			List<Emp> list=new ArrayList<Emp>();
 			while(rs.next()) {
@@ -104,8 +116,7 @@ try(Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521
 			System.out.println("execption  : "+e);
 			request.getSession().setAttribute("error", e.getMessage());
 		}
-		RequestDispatcher rd=request.getRequestDispatcher("Home.jsp");
-		rd.forward(request, response);
+		
 	}
 
 }
