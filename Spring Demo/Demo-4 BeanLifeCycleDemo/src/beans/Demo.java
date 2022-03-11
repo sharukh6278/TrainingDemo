@@ -19,6 +19,7 @@ public class Demo {
 
 		AbstractApplicationContext ap=new ClassPathXmlApplicationContext("beans.xml");
 		ap.registerShutdownHook();
+		Emp e1=(Emp) ap.getBean("emp");
 	}
 
 }
