@@ -35,6 +35,7 @@ public class EmployeeService {
 	}
 	public String register(Employee employee) {
 		Employee emp=repo.save(employee);
+		
 		System.out.println("service : emp  :registeR: "+emp);
 		if(emp!=null) {
 			request.getSession().setAttribute("message", "Employee Register Successfully...");

@@ -8,20 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.org.beans.Employee;
+import com.org.repository.EmployeeDao;
 import com.org.repository.EmployeeRepository;
+import com.org.services.EmployeeDaoService;
 import com.org.services.EmployeeService;
 
 @Controller
 public class EmployeeController {
 	
 	@Autowired
-	EmployeeService service;
+	//EmployeeService service;
+	EmployeeDaoService service;
 	
 	@RequestMapping("/**")
 	public String init() {
@@ -57,14 +63,30 @@ public class EmployeeController {
 	}
 	@Autowired
 	EmployeeRepository repo;
-	@GetMapping("/findByEmail")
-	public ResponseEntity<List<Employee>> findByEmail(@RequestParam("email")String email){
+	//@GetMapping("/findByEmail")
+	@ResponseBody()
+	@RequestMapping(value = "/findByEmail", method = RequestMethod.GET,produces={"application/xml"}
+			//,consumes={"application/json", "application/xml","application/text","text/html"}	
+			)
+	public List<Employee> findByEmail(@RequestParam("email")String email){
 		List<Employee> list=repo.findByEmail(email);
 		System.out.println("list :findByEmail "+list);
-		return new ResponseEntity(list,HttpStatus.OK);
+		//return new ResponseEntity(list,HttpStatus.OK);
+		return list;
 	}
 	
-	
+	@Autowired
+	EmployeeDao dao;
+	@ResponseBody()
+	@RequestMapping(value = "/findByEmailDao", method = RequestMethod.GET,produces={"application/json"}
+			//,consumes={"application/json", "application/xml","application/text","text/html"}	
+			)
+	public List<Employee> findByEmailDao(@RequestParam("email")String email){
+		List<Employee> list=dao.findByEmail(email);
+		System.out.println("list :findByEmail  dao"+list);
+		//return new ResponseEntity(list,HttpStatus.OK);
+		return list;
+	}
 	
 	
 

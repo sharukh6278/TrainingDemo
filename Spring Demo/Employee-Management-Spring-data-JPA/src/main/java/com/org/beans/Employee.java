@@ -2,8 +2,13 @@ package com.org.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity(name = "Employee")
+@XmlRootElement(name = "Employee")
+@XmlType(propOrder = {"id", "name", "email", "password","salary","permission"})
 public class Employee {
 	
 	@Id
@@ -24,7 +29,7 @@ public class Employee {
 		this.password = password;
 		this.permission = permission;
 	}
-
+	@XmlElement
 	public int getId() {
 		return id;
 	}
@@ -32,7 +37,7 @@ public class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -40,7 +45,7 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	@XmlElement
 	public String getEmail() {
 		return email;
 	}
@@ -48,7 +53,7 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	@XmlElement
 	public String getPassword() {
 		return password;
 	}
@@ -56,7 +61,7 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	@XmlElement
 	public String getPermission() {
 		return permission;
 	}
@@ -65,7 +70,7 @@ public class Employee {
 		this.permission = permission;
 	}
 
-	
+	@XmlElement
 	public float getSalary() {
 		return salary;
 	}
