@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,10 +22,10 @@ public class WelcomeContoller {
 	@RequestMapping("/welcome1")
 	public String welcome(Model model) {
 		System.out.println("welcome contro");
-		
 		model.addAttribute("message", "message from welcome1");
 		return "welcome";
 	}
+	@ResponseBody
 	@RequestMapping("/w")
 	public String welcome2() {
 		System.out.println("welcome2 contro");
@@ -37,7 +38,6 @@ public class WelcomeContoller {
         return mav;
     }
 		@RequestMapping("/hello")
-	// @RequestMapping(method = RequestMethod.GET)
 	   public String printHello(ModelMap map) {
 			map.addAttribute("message", "Hello Spring MVC Framework!");
 	      System.out.println("Hello");

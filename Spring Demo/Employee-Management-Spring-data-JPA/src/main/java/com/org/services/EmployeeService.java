@@ -18,6 +18,7 @@ public class EmployeeService {
 	
 	@Autowired
 	HttpServletRequest request;
+	
 	public String login(String email,String password) {
 		Employee emp=repo.findByEmailAndPassword(email,password);
 		System.out.println("emp in service : "+emp);
@@ -35,7 +36,6 @@ public class EmployeeService {
 	}
 	public String register(Employee employee) {
 		Employee emp=repo.save(employee);
-		
 		System.out.println("service : emp  :registeR: "+emp);
 		if(emp!=null) {
 			request.getSession().setAttribute("message", "Employee Register Successfully...");

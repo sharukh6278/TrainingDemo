@@ -44,8 +44,6 @@ public class EmployeeDao {
 		long count=(long) entityManager.createQuery("select count(*) from Employee").getSingleResult();
 		System.out.println("count : "+count);
 		return q.getResultList();
-	
 	}
-	
 
 }
