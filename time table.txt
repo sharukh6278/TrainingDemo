@@ -11,3 +11,22 @@ Module:-
 10. GIT - 6hrs
 11. Maven - 5.5hrs
 12. Docker - 3hrs
+
+weekends
+Java DevOps/CICD - 6.5hrs
+
+Monday
+4. Jenkins - 3.5hrs
+
+
+tuesday
+12. Docker - 3hrs
+
+wednsday
+5. Microservices architecture - 5hrs
+
+thursday
+11. Maven - 5.5hrs
+
+friday and sat
+9. Spring Boot Web Services - 9.5hrs

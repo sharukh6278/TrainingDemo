@@ -34,11 +34,11 @@ public class DemoApplication {
 
 		Answer ans1 = new Answer(102, "java pgm lang");
 		q1.setAnser(ans1);
-		ans1.setQuestion(q1);
+		//ans1.setQuestion(q1);
 		session.save(q1);
 		session.save(ans1);
 		Question qout = session.get(Question.class, 101);
-		System.out.println("ans : " + qout);
+		System.out.println("ans : ***" + qout);
 
 		t.commit();
 		System.out.println("successfully saved");

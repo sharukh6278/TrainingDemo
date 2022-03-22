@@ -1,8 +1,14 @@
-package com.example.demo.one_to_one;
+package com.example.demo.entity_manager;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -10,9 +16,10 @@ public class Question {
 	@Id
 	private int id;
 	private String question;
-	@OneToOne//(mappedBy = "question")
-	@JoinColumn(name="aaaa_id") 
-	private Answer anser;
+	@OneToMany
+	@JoinTable(name="Q_A",joinColumns = @JoinColumn(name="q"),
+	inverseJoinColumns = @JoinColumn(name="a"))
+	private List<Answer > anserList=new ArrayList<Answer>();
 	
 	public Question(int id, String question) {
 		super();
@@ -36,16 +43,17 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public Answer getAnser() {
-		return anser;
+	public List<Answer> getAnserList() {
+		return anserList;
 	}
-	public void setAnser(Answer anser) {
-		this.anser = anser;
+	public void setAnserList(List<Answer> anserList) {
+		this.anserList = anserList;
 	}
 	@Override
 	public String toString() {
-		return "Question [id=" + id + ", question=" + question + ", anser=" + anser + "]";
+		return "Question [id=" + id + ", question=" + question + ", anserList=" + anserList + "]";
 	}
+	
 	
 	
 

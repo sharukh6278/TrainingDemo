@@ -15,16 +15,16 @@
  -->       <property name="show_sql">true</property>
         <mapping class="com.example.demo.entiry.Employee23"/> 
 <!--         <mapping class="com.example.demo.entiry.Manager"/> 
- -->        <!-- <mapping class="com.example.demo.one_to_one.Question"/> 
-         <mapping class="com.example.demo.one_to_one.Answer"/>  -->
+ -->        <mapping class="com.example.demo.one_to_one.Question"/> 
+         <mapping class="com.example.demo.one_to_one.Answer"/> 
          <!-- <mapping class="com.example.demo.one_to_many.many_to_one.Question"/> 
          <mapping class="com.example.demo.one_to_many.many_to_one.Answer"/> -->
          
           <!-- <mapping class="com.example.demo.many_to_one.Question"/> 
          <mapping class="com.example.demo.many_to_one.Answer"/> -->
          
-         <mapping class="com.example.demo.one_to_may.Question"/> 
-         <mapping class="com.example.demo.one_to_may.Answer"/>
+         <!-- <mapping class="com.example.demo.one_to_may.Question"/> 
+         <mapping class="com.example.demo.one_to_may.Answer"/> -->
          
          <!-- <mapping class="com.example.demo.many_to_many.Question"/> 
          <mapping class="com.example.demo.many_to_many.Answer"/> -->
