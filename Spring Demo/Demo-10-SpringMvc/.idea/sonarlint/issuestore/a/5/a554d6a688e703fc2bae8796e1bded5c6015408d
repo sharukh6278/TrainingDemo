@@ -1,0 +1,18 @@
+
+]
+java:S1192"HDefine a constant instead of duplicating this literal "message" 3 times.(ÅÁÚy
+c
+java:S1192"HDefine a constant instead of duplicating this literal "welcome" 3 times.(¾ºê øÿÿÿÿ
+q
+java:S1488%"[Immediately return this expression instead of assigning it to the temporary variable "mav".(Ş°–Ñ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(óèÃˆıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ù”İó
+N	java:S106"9Replace this use of System.out or System.err by a logger.(É«’ò
+‡
+java:S1130#"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ø€ÿ–úÿÿÿÿ
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(ëôßÊ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(Ù¿éûÿÿÿÿ
+m
+java:S1128"RRemove this unused import 'org.springframework.web.bind.annotation.RequestMethod'.(Ê™Ğÿûÿÿÿÿ
+i
+java:S1128"NRemove this unused import 'org.springframework.web.servlet.DispatcherServlet'.(ªæŒ±øÿÿÿÿ

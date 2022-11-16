@@ -1,0 +1,9 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(©éòıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ë úÂ
+T
+java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ
+W
+java:S1128"<Remove this unused import 'org.springframework.ui.ModelMap'.(ÊÁâºùÿÿÿÿ
+i
+java:S1128"NRemove this unused import 'org.springframework.web.servlet.DispatcherServlet'.(ªæŒ±øÿÿÿÿ

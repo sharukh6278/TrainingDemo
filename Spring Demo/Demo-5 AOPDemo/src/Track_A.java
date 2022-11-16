@@ -42,7 +42,7 @@ public class Track_A {
 
 	}
 	
-	//@AfterThrowing("msg()")
+	@AfterThrowing("msg()")
 	public void AfterThrowing() {
 		System.out.println("@AfterThrowing calling  A msg()");
 
